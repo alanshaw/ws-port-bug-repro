@@ -1,0 +1,24 @@
+{
+  "name": "ws-port-bug-repro",
+  "version": "0.0.0",
+  "description": "Reproduction of the WebSocket client fetch port bug in Cloudflare workers.",
+  "main": "worker.js",
+  "type": "module",
+  "scripts": {
+    "start": "run-p start:server start:worker",
+    "start:server": "run-p start:server:*",
+    "start:server:node": "node ws-server.js",
+    "start:server:lt": "lt --port 9000 --subdomain ws-port-bug-repro-1",
+    "start:worker": "wrangler dev"
+  },
+  "author": "Alan Shaw",
+  "license": "Apache-2.0 OR MIT",
+  "dependencies": {
+    "ws": "^8.8.1"
+  },
+  "devDependencies": {
+    "localtunnel": "^2.0.2",
+    "npm-run-all": "^4.1.5",
+    "wrangler": "^2.0.22"
+  }
+}
